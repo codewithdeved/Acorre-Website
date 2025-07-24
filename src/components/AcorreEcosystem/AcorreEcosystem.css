@@ -1,0 +1,448 @@
+.acorre-ecosystem-section {
+    padding: 100px 0;
+    background: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.acorre-ecosystem-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(29, 209, 161, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 210, 211, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-content {
+    margin-bottom: 48px;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--acorre-primary) 0%, #1dd1a1 50%, #00d2d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--acorre-primary-light) 0%, #1dd1a1 50%, #00d2d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 800px;
+    text-align: left;
+    /* margin: 0 auto; */
+    line-height: 1.6;
+}
+
+.ecosystem-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--acorre-primary);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.ecosystem-card {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.ecosystem-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--service-color);
+}
+
+.ecosystem-card.active {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-color: var(--service-color);
+}
+
+.card-background-pattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: var(--service-gradient);
+    opacity: 0.05;
+    border-radius: 50%;
+    transform: translate(40px, -40px);
+    transition: all 0.4s ease;
+}
+
+.ecosystem-card:hover .card-background-pattern {
+    opacity: 0.1;
+    transform: translate(30px, -30px) scale(1.2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.service-image-container {
+    width: 225px;
+    height: 55px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.ecosystem-card:hover .service-image-container {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.service-info {
+    margin-bottom: 24px;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.service-subtitle {
+    font-size: 16px;
+    color: var(--service-color);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.service-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.service-features {
+    margin-bottom: 32px;
+}
+
+.features-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--service-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.service-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.05);
+}
+
+.ecosystem-footer {
+    position: relative;
+    z-index: 2;
+}
+
+.integration-showcase {
+    background: var(--surface-color);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.integration-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 16px;
+}
+
+[data-theme="dark"] .integration-title {
+    color: var(--text-primary);
+}
+
+.integration-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.integration-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.flow-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.flow-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.flow-icon:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.flow-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.flow-connector {
+    font-size: 24px;
+    color: var(--text-muted);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ecosystem-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .ecosystem-stats {
+        gap: 32px;
+    }
+
+    .integration-flow {
+        gap: 16px;
+    }
+
+    .flow-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .acorre-ecosystem-section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+    }
+
+    .ecosystem-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .ecosystem-card {
+        padding: 24px;
+    }
+
+    .ecosystem-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .integration-showcase {
+        padding: 32px 24px;
+    }
+
+    .integration-title {
+        font-size: 24px;
+    }
+
+    .integration-flow {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .flow-connector {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .ecosystem-card {
+        padding: 20px;
+    }
+
+    .service-image-container {
+        width: 60px;
+        height: 60px;
+    }
+
+    .service-title {
+        font-size: 20px;
+    }
+
+    .integration-showcase {
+        padding: 24px 16px;
+    }
+}

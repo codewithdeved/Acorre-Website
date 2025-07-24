@@ -1,0 +1,183 @@
+.whats-on-your-mind {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+[data-theme="dark"] .section-title {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.cuisine-carousel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.carousel-btn {
+    background: var(--background-color);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.cuisine-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.cuisine-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: calc(100% * 11 / 9);
+}
+
+.cuisine-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 0 0 calc(100% / 11);
+    max-width: calc(100% / 9);
+}
+
+.cuisine-item:hover {
+    transform: translateY(-8px);
+}
+
+.cuisine-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cuisine-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.cuisine-item:hover .cuisine-image {
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.05);
+}
+
+.cuisine-image img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.cuisine-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.cuisine-item:hover .cuisine-name {
+    color: var(--primary-color);
+}
+
+@media (max-width: 1200px) {
+    .cuisine-track {
+        width: calc(100% * 11 / 7);
+    }
+
+    .cuisine-item {
+        flex: 0 0 calc(100% / 11);
+        max-width: calc(100% / 7);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .cuisine-carousel {
+        gap: 12px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .cuisine-track {
+        gap: 16px;
+        width: calc(100% * 11 / 4);
+    }
+
+    .cuisine-item {
+        flex: 0 0 calc(100% / 11);
+        max-width: calc(100% / 4);
+        gap: 12px;
+    }
+
+    .cuisine-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+    }
+
+    .cuisine-image img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .cuisine-name {
+        font-size: 14px;
+    }
+}

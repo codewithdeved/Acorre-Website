@@ -1,13 +1,347 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* Acorre Brand Colors - Extracted from Logo */
+  --acorre-primary: #9333ea;
+  --acorre-primary-hover: #7c3aed;
+  --acorre-primary-light: #a855f7;
+  --acorre-primary-dark: #7e22ce;
+  --acorre-secondary: #c084fc;
+  --acorre-secondary-hover: #a855f7;
+  --acorre-secondary-light: #ddd6fe;
+  --acorre-accent: #f3e8ff;
+
+  /* Professional Shopping Theme - Light Mode */
+  --primary-color: var(--acorre-primary);
+  --primary-hover: var(--acorre-primary-hover);
+  --primary-light: var(--acorre-primary-light);
+  --secondary-color: #f8fafc;
+  --accent-color: var(--acorre-secondary);
+  --accent-hover: var(--acorre-secondary-hover);
+  --accent-light: var(--acorre-secondary-light);
+
+  /* Premium Violet Shades - Aligned with Acorre */
+  --violet-50: #faf5ff;
+  --violet-100: #f3e8ff;
+  --violet-500: var(--acorre-secondary);
+  --violet-600: var(--acorre-primary);
+  --violet-700: var(--acorre-primary-hover);
+  --violet-900: var(--acorre-primary-dark);
+
+  /* Indigo Professional Shades - Complementary */
+  --indigo-50: #eef2ff;
+  --indigo-100: #e0e7ff;
+  --indigo-500: #6366f1;
+  --indigo-600: var(--acorre-primary);
+  --indigo-700: var(--acorre-primary-hover);
+  --indigo-900: #312e81;
+
+  /* Neutral Shopping Colors */
+  --background-color: #ffffff;
+  --surface-color: #f8fafc;
+  --surface-hover: #f1f5f9;
+  --surface-elevated: #ffffff;
+  --border-color: #e2e8f0;
+  --border-light: #f1f5f9;
+  --border-strong: #cbd5e1;
+
+  /* Professional Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Enhanced Text Hierarchy */
+  --text-heading: #64748b;
+  --text-heading-light: #94a3b8;
+  --text-subheading: #475569;
+
+  /* Shopping Status Colors */
+  --success-color: #059669;
+  --success-light: #10b981;
+  --error-color: #dc2626;
+  --error-light: #ef4444;
+  --warning-color: #d97706;
+  --warning-light: #f59e0b;
+  --info-color: #0284c7;
+  --info-light: #0ea5e9;
+
+  /* Premium Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Acorre Brand Gradients */
+  --acorre-gradient: linear-gradient(135deg, var(--acorre-primary) 0%, var(--acorre-primary-light) 100%);
+  --acorre-secondary-gradient: linear-gradient(135deg, var(--acorre-secondary) 0%, var(--acorre-secondary-hover) 100%);
+  --acorre-glow: rgba(147, 51, 234, 0.3);
+  --acorre-glow-strong: rgba(147, 51, 234, 0.5);
+
+  /* Shopping Gradients - Updated with Acorre Colors */
+  --gradient-primary: var(--acorre-gradient);
+  --gradient-secondary: linear-gradient(135deg, var(--acorre-secondary) 0%, var(--acorre-secondary-light) 100%);
+  --gradient-accent: var(--acorre-secondary-gradient);
+  --gradient-surface: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-premium: linear-gradient(135deg, var(--acorre-primary-dark) 0%, var(--acorre-primary) 100%);
+  --gradient-shopping: linear-gradient(
+    135deg,
+    var(--acorre-primary) 0%,
+    var(--acorre-secondary) 50%,
+    var(--acorre-secondary-light) 100%
+  );
+
+  /* Shopping Card Effects - Acorre Themed */
+  --card-shadow: 0 4px 6px -1px rgba(147, 51, 234, 0.1), 0 2px 4px -1px rgba(192, 132, 252, 0.06);
+  --card-shadow-hover: 0 20px 25px -5px rgba(147, 51, 234, 0.1), 0 10px 10px -5px rgba(192, 132, 252, 0.04);
+  --premium-glow: var(--acorre-glow-strong);
+}
+
+[data-theme="dark"] {
+  /* Acorre Brand Colors - Dark Mode Variants */
+  --acorre-primary: #a855f7;
+  --acorre-primary-hover: #9333ea;
+  --acorre-primary-light: #c084fc;
+  --acorre-primary-dark: #7c3aed;
+  --acorre-secondary: #c084fc;
+  --acorre-secondary-hover: #a855f7;
+  --acorre-secondary-light: #ddd6fe;
+
+  /* Professional Shopping Theme - Dark Mode */
+  --primary-color: var(--acorre-primary);
+  --primary-hover: var(--acorre-primary-hover);
+  --primary-light: var(--acorre-primary-light);
+  --secondary-color: #1e293b;
+  --accent-color: var(--acorre-secondary);
+  --accent-hover: var(--acorre-secondary-hover);
+  --accent-light: var(--acorre-secondary-light);
+
+  /* Dark Mode Surfaces */
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --surface-hover: #334155;
+  --surface-elevated: #334155;
+  --border-color: #334155;
+  --border-light: #475569;
+  --border-strong: #64748b;
+
+  /* Dark Mode Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-light: #64748b;
+  --text-inverse: #0f172a;
+
+  /* Dark Mode Text Hierarchy */
+  --text-heading: #94a3b8;
+  --text-heading-light: #cbd5e1;
+  --text-subheading: #cbd5e1;
+
+  /* Dark Mode Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  /* Dark Mode Acorre Gradients */
+  --acorre-gradient: linear-gradient(135deg, var(--acorre-primary) 0%, var(--acorre-primary-light) 100%);
+  --acorre-secondary-gradient: linear-gradient(135deg, var(--acorre-secondary) 0%, var(--acorre-secondary-hover) 100%);
+  --acorre-glow: rgba(168, 85, 247, 0.4);
+  --acorre-glow-strong: rgba(168, 85, 247, 0.6);
+
+  /* Dark Mode Gradients */
+  --gradient-primary: var(--acorre-gradient);
+  --gradient-secondary: linear-gradient(135deg, var(--acorre-secondary) 0%, var(--acorre-secondary-light) 100%);
+  --gradient-accent: var(--acorre-secondary-gradient);
+  --gradient-surface: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --gradient-premium: linear-gradient(135deg, var(--acorre-primary-dark) 0%, var(--acorre-primary) 100%);
+  --gradient-shopping: linear-gradient(
+    135deg,
+    var(--acorre-primary) 0%,
+    var(--acorre-secondary) 50%,
+    var(--acorre-secondary-light) 100%
+  );
+
+  /* Dark Mode Card Effects */
+  --card-shadow: 0 4px 6px -1px rgba(168, 85, 247, 0.2), 0 2px 4px -1px rgba(192, 132, 252, 0.1);
+  --card-shadow-hover: 0 20px 25px -5px rgba(168, 85, 247, 0.2), 0 10px 10px -5px rgba(192, 132, 252, 0.1);
+  --premium-glow: var(--acorre-glow-strong);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  transition: all 0.3s ease;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.app {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+} */
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--card-shadow);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+}
+
+.card.premium {
+  background: var(--gradient-surface);
+  border: 1px solid var(--primary-color);
+  box-shadow: var(--premium-glow);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease forwards;
 }
